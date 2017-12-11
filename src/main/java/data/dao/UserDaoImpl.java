@@ -9,30 +9,32 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.Optional;
 
 @Repository
-@Transactional(propagation = Propagation.MANDATORY)
+//@Transactional(propagation = Propagation.MANDATORY)
 public class UserDaoImpl implements UserDao {
 
+    @PersistenceContext
     private EntityManager entityManager;
 
-    @Autowired
-    public UserDaoImpl(EntityManagerFactory entityManagerFactory) {
-        entityManager = entityManagerFactory.createEntityManager();
-    }
+    //  @Autowired
+    // public UserDaoImpl(EntityManagerFactory entityManagerFactory) {
+    //   entityManager = entityManagerFactory.createEntityManager();
+    //}
 
     @Override
     public void create(User user) {
-        entityManager.getTransaction().begin();
+        //  entityManager.getTransaction().begin();
         entityManager.persist(user);
-        entityManager.flush();
-        entityManager.getTransaction().commit();
+        //  entityManager.flush();
+        //  entityManager.getTransaction().commit();
     }
 
     @Override
-    @Transactional
+    // @Transactional
     public void update(User user) {
         entityManager.merge(user);
     }
