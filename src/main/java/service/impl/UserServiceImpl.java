@@ -1,11 +1,12 @@
-package service;
+package service.impl;
 
-import data.dao.interfaces.UserDao;
+import data.dao.UserDao;
 import data.entity.User;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import service.UserService;
 
 import java.util.Collections;
 import java.util.List;

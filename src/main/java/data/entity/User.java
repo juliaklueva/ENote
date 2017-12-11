@@ -21,6 +21,6 @@ public class User {
     private Role role;
     private Boolean deleted;
 
-    @OneToMany
-    private List<Notebook> notebooks;
+    // @OneToMany
+    // private List<Notebook> notebooks;
 }
