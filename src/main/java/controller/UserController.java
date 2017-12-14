@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import service.UserService;
 
+import java.util.List;
+
 @Controller
 public class UserController {
 
@@ -28,7 +30,13 @@ public class UserController {
         String mail = "1";
         user.setEmail(mail);
         user.setName("Name");
-        userService.createUser(user);
+        userService.create(user);
         return user.toString();
+    }
+
+    @RequestMapping(path = "/users", method = RequestMethod.GET)
+    @ResponseBody
+    public List getAll() {
+        return userService.getAll();
     }
 }

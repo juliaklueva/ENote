@@ -4,10 +4,11 @@ import enums.Role;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
+import java.io.Serializable;
 
 @Entity
 @Data
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,7 +21,4 @@ public class User {
     private Long registrationDate;
     private Role role;
     private Boolean deleted;
-
-    // @OneToMany
-    // private List<Notebook> notebooks;
 }
